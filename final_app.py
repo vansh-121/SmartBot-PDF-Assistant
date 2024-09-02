@@ -48,18 +48,22 @@ def text_to_speech(text):
 
 def recognize_speech():
     """Captures voice input from the user and returns it as text."""
-    recognizer = sr.Recognizer()
-    with sr.Microphone() as source:
-        st.info("Listening... Please speak into the microphone.")
-        audio = recognizer.listen(source)
-        try:
-            text = recognizer.recognize_google(audio)
-            st.success(f"You said: {text}")
-            return text
-        except sr.UnknownValueError:
-            st.error("Sorry, I could not understand the audio.")
-        except sr.RequestError:
-            st.error("Error with the Speech Recognition service.")
+    try:
+        recognizer = sr.Recognizer()
+        with sr.Microphone() as source:
+            st.info("Listening... Please speak into the microphone.")
+            audio = recognizer.listen(source)
+            try:
+                text = recognizer.recognize_google(audio)
+                st.success(f"You said: {text}")
+                return text
+            except sr.UnknownValueError:
+                st.error("Sorry, I could not understand the audio.")
+            except sr.RequestError:
+                st.error("Error with the Speech Recognition service.")
+    except AttributeError:
+        st.error("PyAudio is not installed. Please install it to use voice input.")
+
 
 def extract_texts_from_folder(folder):
     """Extracts and concatenates text from all PDF files in the given folder."""
