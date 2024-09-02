@@ -77,7 +77,7 @@ def store_feedback(user_input, bot_response):
     pass
 
 # Initialize Streamlit app
-st.set_page_config(page_title="Q&A Demo")
+st.set_page_config(page_title="SmartBot AI Assitant")
 st.title("SmartBot : Your PDF Assistant")
 
 # Initialize session state for PDF context if it doesn't exist
