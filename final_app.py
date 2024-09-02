@@ -17,8 +17,9 @@ genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 model = genai.GenerativeModel("gemini-pro")
 chat = model.start_chat(history=[])
 
+import fitz  # PyMuPDF
+
 def extract_text_from_pdf(file):
-    """Extracts text from the provided PDF file using PyMuPDF."""
     text = ""
     with fitz.open(stream=file.read(), filetype="pdf") as doc:
         for page in doc:
