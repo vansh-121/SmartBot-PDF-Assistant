@@ -7,4 +7,3 @@ streamlit==1.38.0
 google-generativeai==0.7.2
 frontend==0.0.3
 PyPdf2==3.0.1
-PyAudio==0.2.14
