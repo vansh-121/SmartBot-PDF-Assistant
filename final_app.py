@@ -153,4 +153,4 @@ if submit and input_text:
         store_feedback(input_text, response_text)
 
     else:
-        st.write("Please upload a PDF folder first..")
+        st.write("Please upload a PDF first..")
