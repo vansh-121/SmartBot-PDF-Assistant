@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 import streamlit as st
 import google.generativeai as genai
-import PyPDF2
+import pdfplumber
 from gtts import gTTS  # Google Text-to-Speech
 import speech_recognition as sr  # Speech Recognition
 import tempfile
@@ -18,11 +18,11 @@ model = genai.GenerativeModel("gemini-pro")
 chat = model.start_chat(history=[])
 
 def extract_text_from_pdf(file):
-    """Extracts text from the provided PDF file using PyPDF2."""
-    reader = PyPDF2.PdfReader(file)
+    """Extracts text from the provided PDF file using pdfplumber."""
     text = ""
-    for page in reader.pages:
-        text += page.extract_text()
+    with pdfplumber.open(file) as pdf:
+        for page in pdf.pages:
+            text += page.extract_text()
     return text
 
 def get_gemini_response(question, context):
