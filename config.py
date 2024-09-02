@@ -1,4 +1,4 @@
 # config.py
-
-STATIC_DIRECTORY = None
-STATIC_ROUTE = None
+STATIC_ROUTE = "/static"
+STATIC_DIRECTORY = "static"
+STATIC_NAME = "static_files"
