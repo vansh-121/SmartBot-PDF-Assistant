@@ -1,9 +1,9 @@
 fitz==0.0.1.dev2
 gTTS==2.5.3
 protobuf>=3.20,<5.0.0
-python-dotenv==1.0.1
+python-dotenv==1.2.2
 SpeechRecognition==3.10.4
-streamlit==1.38.0
+streamlit==1.54.0
 google-generativeai==0.7.2
 frontend==0.0.3
 PyPdf2==3.0.1
